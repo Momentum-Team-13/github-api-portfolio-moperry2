@@ -13,7 +13,10 @@ Make sure to get your avatar url fromGitHub and use it as an avatar on the page.
 You do _not_ have to include the font icon for each repo, but if you want to, you can use the Font Awesome library. You can include it in your project by adding the link to the stylesheet in your the `<head>` tag in your HTML:
 
 ```html
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
 ```
 
 You are welcome to style this however you like and use any additional data you want to from the GitHub API. You don't have to reproduce this mockup exactly, but you should have all the same data included.
@@ -27,13 +30,16 @@ Since there are no starter files provided, you'll need to create your own HTML, 
 The URL that will give you the initial data about your GitHub profile is:
 
 ```http
-https://api.github.com/users/your-username-here
+https://api.github.com/users/moperry2
 ```
+
 Note that
 
 In your HTML you will need a basic structure to add onto with the JS code. Once you have some HTML in place, begin setting up your AJAX calls and the callback functions to work with the data you retrieve. Don't forget to console.log the data to check what you're getting back.
 
 Insomnia will be helpful to test the AJAX calls as you get started.
+asynchronous
+javascript
 
 ## Resources
 
