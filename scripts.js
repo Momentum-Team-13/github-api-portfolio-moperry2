@@ -1,6 +1,7 @@
 let gitHubUrl = "https://api.github.com/users/moperry2";
 // add /repos to end of URL, repos aren't in profile but profile are in repos
 let profileDiv = document.getElementById("profile");
+let repoDiv = document.getElementById("repos");
 
 fetch(gitHubUrl, {
   method: "GET",
@@ -68,7 +69,14 @@ function buildRepos(repoData) {
   console.log(repoData);
   for (let repo of repoData) {
     console.log(repo.name);
+    profile.appendChild(buildRepoElement(repo.name));
   }
+}
+
+function buildRepoElement(name) {
+  let el = document.createElement("p");
+  el.innerText = name;
+  return el;
 }
 // }
 // })
