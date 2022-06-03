@@ -53,12 +53,22 @@ function buildProfile(profileData) {
   //profileData is the data from the promise
 }
 //   urlto get all my repos
-// let gitHubUrl2 = "https://api.github.com/users/moperrry2/repos";
-// fetch(gitHubUrl2, {
-//   method: "GET",
-//   headers: {},
-// }).then(function (response) {
-//   return response.json();
-// });
-
+let gitHubUrl2 = "https://api.github.com/users/moperry2/repos";
+fetch(gitHubUrl2, {
+  method: "GET",
+  headers: { "Content-Type": "apllication/json" },
+})
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (repoData) {
+    buildRepos(repoData);
+  });
+function buildRepos(repoData) {
+  console.log(repoData);
+  for (let repo of repoData) {
+    console.log(repo.name);
+  }
+}
+// }
 // })
