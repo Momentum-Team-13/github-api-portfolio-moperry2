@@ -1,33 +1,24 @@
-let gitHubUrl = "https://api.github.com/users/moperry2";
+let gitHubProfileUrl = "https://api.github.com/users/moperry2";
+let gitHubRepoUrl = "https://api.github.com/users/moperry2/repos";
 // add /repos to end of URL, repos aren't in profile but profile are in repos
-let profileDiv = document.getElementById("profile");
-let repoDiv = document.getElementById("repos");
 
-fetch(gitHubUrl, {
+fetch(gitHubProfileUrl, {
   method: "GET",
-  headers: { "Content-Type": "apllication/json" },
+  headers: { "Content-Type": "application/json" },
 })
   .then(function (response) {
     // the response is the promised data
     return response.json();
     //put the output in json format
   })
-  .then(function (data) {
-    // dtat referes to what the above promise returned (response.json())
-    console.log("Response from GitHub API: ", data);
-    //consol log the data
-    buildProfile(data);
+  .then(function (profileData) {
+    buildProfile(profileData);
   });
 
 function buildProfile(profileData) {
-  //   names = profileData.map(function (repo) {
-  //     return repo.name;
-  //   });
+  let profileDiv = document.getElementById("profile");
 
-  //   console.log(names);
-  //   console.log(profileData);
-
-  // create elemetns and add them to the page
+  // create elements and add them to the page
   //profile pic-avatar
   let imageElement = document.createElement("img");
   imageElement.classList.add("img");
@@ -51,32 +42,25 @@ function buildProfile(profileData) {
   let usernameElement = document.createElement("div");
   usernameElement.innerText = `Username: ${profileData.login}`;
   profileDiv.appendChild(usernameElement);
-  //profileData is the data from the promise
 }
 //   urlto get all my repos
-let gitHubUrl2 = "https://api.github.com/users/moperry2/repos";
-fetch(gitHubUrl2, {
+fetch(gitHubRepoUrl, {
   method: "GET",
-  headers: { "Content-Type": "apllication/json" },
+  headers: { "Content-Type": "application/json" },
 })
   .then(function (response) {
     return response.json();
   })
-  .then(function (repoData) {
-    buildRepos(repoData);
+  .then(function (response) {
+    buildRepos(response);
   });
 function buildRepos(repoData) {
-  console.log(repoData);
-  for (let repo of repoData) {
-    console.log(repo.name);
-    profile.appendChild(buildRepoElement(repo.name));
+  let repoDiv = document.getElementById("repos");
+  for (let i = 0; i < repoData.length; i++) {
+    let repoLink = document.createElement("a");
+    repoLink.href = `${repoData[i].html_url}`;
+    repoLink.classList.add("repo-link");
+    repoLink.innerText = `GitHub Repos ${repoData[i].name}`;
+    repoDiv.appendChild(repoLink);
   }
 }
-
-function buildRepoElement(name) {
-  let el = document.createElement("p");
-  el.innerText = name;
-  return el;
-}
-// }
-// })
