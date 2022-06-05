@@ -1,15 +1,55 @@
 #profile {
   border: 3px solid blanchedalmond;
 }
-
-.name {
+h1 {
+  background-color: blanchedalmond;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
   font-size: 50px;
-  text-align: right;
+}
+.name {
+  text-align: center;
+  font-size: 60px;
+  background: blanchedalmond;
+  border-radius: 50px;
+  /* border: 5px red; */
+  margin: 5px;
 }
 .img {
-  border-radius: 75%;
   /* display: flex; */
   justify-content: space-between;
+  border-radius: 50%;
+  max-width: 40%;
+  margin: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid blanchedalmond;
 }
-.repo-link {
+a,
+.location,
+.username {
+  background-color: blanchedalmond;
+  box-shadow: 2px 2px rgb(255, 255, 255);
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  text-decoration: none;
+  border-radius: 50px;
+}
+a:hover {
+  color: rgb(59, 122, 230);
+}
+#repos {
+  border: blanchedalmond solid 2px;
+  background: blanchedalmond;
+  color: blanchedalmond;
+  font-size: 30px;
+  text-align: center;
+}
+
+.location,
+.username {
+  font-size: 20px;
 }

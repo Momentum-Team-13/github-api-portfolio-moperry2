@@ -31,16 +31,18 @@ function buildProfile(profileData) {
   profileDiv.appendChild(nameElement);
   //location
   let locationElement = document.createElement("div");
-  locationElement.innerText = `Location: ${profileData.location}`;
+  locationElement.classList.add("location");
+  locationElement.innerText = `\b\r Location: ${profileData.location}`;
   profileDiv.appendChild(locationElement);
-  //GitHub url
+  //GitHub and LinkedIn url
   let urlElement = document.createElement("a");
   urlElement.href = `${profileData.html_url}`;
-  urlElement.innerText = `GitHub URL: ${profileData.login}`;
+  urlElement.innerText = ` \b\r GitHub URL: ${profileData.login} \b\r \b\r LinkedIn URL: ${profileData.blog} \b\r`;
   profileDiv.appendChild(urlElement);
   //USERNAME
   let usernameElement = document.createElement("div");
-  usernameElement.innerText = `Username: ${profileData.login}`;
+  usernameElement.classList.add("username");
+  usernameElement.innerText = `\b\r Username: ${profileData.login}`;
   profileDiv.appendChild(usernameElement);
 }
 //   urlto get all my repos
@@ -60,7 +62,7 @@ function buildRepos(repoData) {
     let repoLink = document.createElement("a");
     repoLink.href = `${repoData[i].html_url}`;
     repoLink.classList.add("repo-link");
-    repoLink.innerText = `GitHub Repos ${repoData[i].name}`;
+    repoLink.innerText = `GitHub Repos: \b\r ${repoData[i].name} \b\r`;
     repoDiv.appendChild(repoLink);
   }
 }
